@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.6.8",
+    "@types/styled-components": "^5.1.25",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/walletconnect-connector": "^6.2.13",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.9",
     "next": "12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.5",
+    "web3": "^1.7.4"
   },
   "devDependencies": {
-    "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
-    "@types/react-dom": "18.0.5",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
     "typescript": "4.7.4"
