@@ -1,11 +1,20 @@
 import { useRouter } from "next/router";
 
+/* Components */
+import { Button } from "../../src/components/atoms";
+
 /* Types */
 import { AuthProps } from "./auth-page.types";
 
 /* Constants */
 import { Providers } from "../../src/common/enums";
-// import { IconMetaMask, IconWalletConnect } from "../../assets";
+import {
+  ALLOWED_NETWORKS,
+  MAIN_TITLE,
+  META_MASK_BUTTON,
+  UNSUPORTED_NETWORK,
+  WALLET_CONNECT_BUTTON,
+} from "./auth-page.constants";
 
 /* Styles */
 import AuthPageStyled from "./auth-page.styles";
@@ -18,47 +27,30 @@ export const AuthPage = ({
   const router = useRouter();
 
   if (isConnected) {
-    router.push("/VotePage");
+    router.push("/elections-page");
   }
 
   const onMetaMaskConnect = () => onConnect(Providers.INJECTED_CONNECTOR);
-
   const onWalletConnect = () => onConnect(Providers.WALLET_CONNECT);
 
   return (
     <AuthPageStyled.Root>
-      <div className="auth-page-img" />
-      <div className="auth-page-wallet-connect">
-        <h2 className="auth-page-wallet-connect-title">Connect your wallet</h2>
-        {isUnsupportedNetwork && (
-          <div className="auth-page-wallet-connect-error">
-            Unsupported network! <br />
-            Please switch to one of supported networks: Ropsten or Rinkeby.
-          </div>
-        )}
-        <div className="auth-page-wallet-connect-button-group">
-          <button
-            className="auth-page-wallet-connect-button-group-btn"
-            type="button"
-            onClick={onMetaMaskConnect}
-          >
-            <img src="" alt="MetaMask" />
-            <span className="auth-page-wallet-connect-button-group-btn-text">
-              MetaMask
-            </span>
-          </button>
-          <button
-            className="auth-page-wallet-connect-button-group-btn"
-            type="button"
-            onClick={onWalletConnect}
-          >
-            <img src="" alt="WalletConnect" />
-            <span className="auth-page-wallet-connect-button-group-btn-text">
-              WalletConnect
-            </span>
-          </button>
-        </div>
-      </div>
+      {isUnsupportedNetwork && (
+        <AuthPageStyled.InfoBanner>
+          {UNSUPORTED_NETWORK} <br />
+          {ALLOWED_NETWORKS}
+        </AuthPageStyled.InfoBanner>
+      )}
+      <AuthPageStyled.InnerWrapper>
+        <AuthPageStyled.MainTitle>{MAIN_TITLE}</AuthPageStyled.MainTitle>
+        <AuthPageStyled.ButtonWrapper>
+          {/* Meta Mask button */}
+          <Button onClick={onMetaMaskConnect} btnText={META_MASK_BUTTON} />
+
+          {/* Wallet Connect */}
+          <Button onClick={onWalletConnect} btnText={WALLET_CONNECT_BUTTON} />
+        </AuthPageStyled.ButtonWrapper>
+      </AuthPageStyled.InnerWrapper>
     </AuthPageStyled.Root>
   );
 };
