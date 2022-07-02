@@ -62,40 +62,7 @@ export type WakandaContractMethodNames =
   | "injectCandidates"
   | "proposals";
 
-export interface OwnershipTransferredEventEmittedResponse {
-  previousOwner: string;
-  newOwner: string;
-}
-export interface PostCreatedEventEmittedResponse {
-  postID: BigNumberish;
-  owner: string;
-  text: string;
-}
-export interface PostDeletedEventEmittedResponse {
-  postID: BigNumberish;
-}
-export interface PostSponsoredEventEmittedResponse {
-  postID: BigNumberish;
-  sponsorAmount: BigNumberish;
-  sponsor: string;
-}
-export interface PostResponse {
-  timestamp: BigNumber;
-  0: BigNumber;
-  owner: string;
-  1: string;
-  text: string;
-  2: string;
-}
-export interface PostsResponse {
-  timestamp: BigNumber;
-  0: BigNumber;
-  owner: string;
-  1: string;
-  text: string;
-  2: string;
-  length: 3;
-}
+
 export interface WakandaContract {
   vote(
     candidateIndex: number,
