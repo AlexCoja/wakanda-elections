@@ -5,8 +5,10 @@ import { AbiItem } from "web3-utils";
 const provider = new Web3.providers.HttpProvider(
   `${process.env.NEXT_PUBLIC_RPC_URL_3}`
 );
-const web3 = new Web3(provider);
 const ropstenSCAddress = "0x7BC0B49474505CB8Cf77c2Cb8747300bD221E904";
+const web3 = new Web3(provider);
+
+export const accounts = web3.eth.getAccounts();
 
 const abi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },

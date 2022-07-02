@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "compile-web3-abi": "solcjs --abi --include-path node-modules/ --base-path . blockchain/contracts/WakandaElections.sol --output-dir blockchain/build"
+    "compile-web3-abi": "solcjs --abi --include-path node-modules/ --base-path . blockchain/contracts/WakandaElections.sol --output-dir blockchain/build",
+    "compile-web3-token-abi": "solcjs --abi --include-path node-modules/ --base-path . blockchain/contracts/WakandaToken.sol --output-dir blockchain/build"
   },
   "dependencies": {
     "@ethersproject/providers": "^5.6.8",
@@ -21,6 +22,7 @@
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-toastify": "^9.0.5",
     "solc": "^0.8.15",
     "styled-components": "^5.3.5",
     "web3": "^1.7.4"
